@@ -1,8 +1,8 @@
 import React from "react";
 import ControlWidget from "./ControlWidget";
-import { 
-    Box,
-    Grid
+import {
+  Box,
+  Grid
 } from "@mui/material";
 
 // Existing infrastructure control.
@@ -16,50 +16,50 @@ const audioTrackerStatus = ['on', 'off', 'on', 'off', 'on', 'on'];
 const selfAwarenessStatus = [];
 
 const ControlStack = () => {
-    return (
-        <>
-            <Box>
-                <Grid container spacing={4}>
-                    <Grid item sm={12} md={6} lg={12} xl={6}>
-                        <ControlWidget 
-                            title="Visual Display"
-                            statuses={visualDisplayStatus}
-                        />
-                    </Grid>
-                    <Grid item sm={12} md={6} lg={12} xl={6}>
-                        <ControlWidget 
-                            title="Visual Tracker"
-                            statuses={visualTrackerStatus}
-                        />
-                    </Grid>
-                    <Grid item sm={12} md={6} lg={12} xl={6}>
-                        <ControlWidget 
-                            title="Audio Display"
-                            statuses={audioDisplayStatus}
-                        />
-                    </Grid>
-                    <Grid item sm={12} md={6} lg={12} xl={6}>
-                        <ControlWidget 
-                            title="Audio Tracker"
-                            statuses={audioTrackerStatus}
-                        />
-                    </Grid>
-                    <Grid item sm={12} md={6} lg={12} xl={6}>
-                        <ControlWidget 
-                            title="Lighting System"
-                            statuses={lightingSystemStatus}
-                        />
-                    </Grid>
-                    <Grid item sm={12} md={6} lg={12} xl={6}> 
-                        <ControlWidget 
-                            title="Self-Awareness"
-                            statuses={selfAwarenessStatus}
-                        />
-                    </Grid>
-                </Grid>
-            </Box>
-        </>
-    )
+  return (
+    <>
+      <Box>
+        <Grid container spacing={4}>
+          <Grid item sm={12} md={6} lg={12} xl={6}>
+            <ControlWidget
+              title="Visual Display"
+              statuses={visualDisplayStatus}
+            />
+          </Grid>
+          <Grid item sm={12} md={6} lg={12} xl={6}>
+            <ControlWidget
+              title="Visual Tracker"
+              statuses={visualTrackerStatus}
+            />
+          </Grid>
+          <Grid item sm={12} md={6} lg={12} xl={6}>
+            <ControlWidget
+              title="Audio Display"
+              statuses={audioDisplayStatus}
+            />
+          </Grid>
+          <Grid item sm={12} md={6} lg={12} xl={6}>
+            <ControlWidget
+              title="Audio Tracker"
+              statuses={audioTrackerStatus}
+            />
+          </Grid>
+          <Grid item sm={12} md={6} lg={12} xl={6}>
+            <ControlWidget
+              title="Lighting System"
+              statuses={lightingSystemStatus}
+            />
+          </Grid>
+          <Grid item sm={12} md={6} lg={12} xl={6}>
+            <ControlWidget
+              title="Self-Awareness"
+              statuses={selfAwarenessStatus}
+            />
+          </Grid>
+        </Grid>
+      </Box>
+    </>
+  )
 }
 
 export default ControlStack;
