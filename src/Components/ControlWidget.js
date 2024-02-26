@@ -16,6 +16,11 @@ import NorthEastIcon from '@mui/icons-material/NorthEast';
 import ControlSwitch from "./ControlSwitch";
 import StatusLights from "./StatusLights";
 
+import { 
+  BrowserRouter as Router, 
+  Route 
+} from "react-router-dom";
+
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
