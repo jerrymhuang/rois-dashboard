@@ -2,33 +2,33 @@ import './Dashboard.css';
 
 import { Grid, Box, Divider } from '@mui/material';
 
-import Header from '../Components/Header';
-import ControlStack from '../Components/ControlStack';
-import PlaceHolder from '../Components/PlaceHolder';
-import Footer from '../Components/Footer';
-
+import Header from '../components/Header';
+import ControlStack from '../components/ControlStack';
+import PlaceHolder from '../components/PlaceHolder';
+import Footer from '../components/Footer';
 
 const Dashboard = (props) => {
   const { theme, colorMode } = props;
   return (
-    <div className="App">
+    // <div className="App">
+    <>
       <Header theme={theme} colorMode={colorMode} />
       <Divider />
-      <Box sx={{margin: '36px', height: "100%"}}>
-        <Grid container spacing={4}>
+      <Grid container spacing={4} justifyContent="center">
+        <Box sx={{ height: '100%' }}>
           <Grid item sm={12} lg={5}>
             <ControlStack />
           </Grid>
           <Grid item sm={12} lg={7}>
             <PlaceHolder name="ModelViewer" />
           </Grid>
-        </Grid>
-      </Box>
+        </Box>
+      </Grid>
       <Divider />
       <Footer />
-    </div>
+    </>
+    // </div>
   );
-}
-
+};
 
 export default Dashboard;

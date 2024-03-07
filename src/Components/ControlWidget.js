@@ -1,41 +1,34 @@
-import React from "react";
+import React from 'react';
 import {
-    Card,
-    Paper,
-    Divider,
-    IconButton,
-    Typography,
-    CardHeader,
-    CardActions,
-    Collapse,
-} from "@mui/material";
-import { styled } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+  Card,
+  Paper,
+  Divider,
+  IconButton,
+  Typography,
+  CardHeader,
+  CardActions,
+  Collapse,
+} from '@mui/material';
+import { styled } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import NorthEastIcon from '@mui/icons-material/NorthEast';
 
-import ControlSwitch from "./ControlSwitch";
-import StatusLights from "./StatusLights";
-
-import { 
-  BrowserRouter as Router, 
-  Route 
-} from "react-router-dom";
-
+import ControlSwitch from './ControlSwitch';
+import StatusLights from './StatusLights';
 
 const ExpandMore = styled((props) => {
-    const { expand, ...other } = props;
-    return <IconButton {...other} />;
-  })(({ theme, expand }) => ({
-    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+  marginLeft: 'auto',
+  transition: theme.transitions.create('transform', {
+    duration: theme.transitions.duration.shortest,
+  }),
 }));
 
-
 const ControlWidget = (props) => {
-  const { title, statuses } = props;
+  const { children, title, statuses } = props;
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -45,25 +38,25 @@ const ControlWidget = (props) => {
 
   return (
     <>
-      <Card 
-        variant="outlined" 
+      <Card
+        variant="outlined"
         sx={{
           background: 'none',
           border: 'none',
-          height: '22.5vh'
+          height: '22.5vh',
         }}
       >
         <CardHeader
           title={
             <>
-              <Typography 
+              <Typography
                 variant="subtitle1"
                 sx={{
                   textAlign: 'left',
                   lineHeight: 1.2,
                   fontSize: '16px',
                   fontWeight: 'bold',
-                  flexGrow: 1
+                  flexGrow: 1,
                 }}
               >
                 {title}
@@ -73,31 +66,31 @@ const ControlWidget = (props) => {
           action={
             <>
               <ControlSwitch />
-              <IconButton  
-              aria-label="expand" 
-              color="primary" 
-              sx={{
-                flexGrow: 0,
-                xs: 'none',
+              <IconButton
+                aria-label="expand"
+                color="primary"
+                sx={{
+                  flexGrow: 0,
+                  xs: 'none',
                 }}
               >
-                <NorthEastIcon fontSize="small"/>
+                <NorthEastIcon fontSize="small" />
               </IconButton>
             </>
           }
           sx={{
-            pl: '12px', pr: '12px',
-            pt: '8px', pb: '8px'
+            pl: '12px',
+            pr: '12px',
+            pt: '8px',
+            pb: '8px',
           }}
         />
-        <Divider sx={{ pl: '20px'}}/>
-        <CardActions disableSpacing
-        sx={{ padding: '4px'}} 
-        >
-          <Typography 
+        <Divider sx={{ pl: '20px' }} />
+        <CardActions disableSpacing sx={{ padding: '4px' }}>
+          <Typography
             variant="button"
             sx={{
-              pl: '8px'
+              pl: '8px',
             }}
           >
             Show status
@@ -111,25 +104,13 @@ const ControlWidget = (props) => {
             <ExpandMoreIcon fontSize="small" />
           </ExpandMore>
         </CardActions>
-          <Collapse in={expanded} timeout="auto" unmountOnExit>
-            <StatusLights statuses={statuses}/>
-          </Collapse>
-          <Paper elevation={0}>
-            <Typography 
-              variant="body2" 
-              sx={{ 
-                textAlign: 'left',
-                padding: '15px',
-                fontFamily: 'Roboto Mono',
-                fontSize: '12px'
-              }}
-            >
-              Lorem ipsum dolor sit amet, high-level message for troubleshooting. 
-            </Typography>
-          </Paper>
+        <Collapse in={expanded} timeout="auto" unmountOnExit>
+          <StatusLights statuses={statuses} />
+        </Collapse>
+        <Paper elevation={0}>{children}</Paper>
       </Card>
     </>
   );
-}
+};
 
 export default ControlWidget;

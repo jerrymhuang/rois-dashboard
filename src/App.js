@@ -1,11 +1,11 @@
-import React from "react";
-import { ThemeProvider, CssBaseline } from "@mui/material";
-import Dashboard from './Pages/Dashboard';
+import React from 'react';
+import { ThemeProvider, CssBaseline } from '@mui/material';
+import Dashboard from './pages/Dashboard';
 // import { theme } from "./Themes/theme";
-import { createTheme } from "@mui/material";
-import getDesignTokens from "./Themes/design-token";
+import { createTheme } from '@mui/material';
+import getDesignTokens from './themes/design-token';
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
 
 export default function App() {
   const [mode, setMode] = React.useState('light');
@@ -13,9 +13,7 @@ export default function App() {
     () => ({
       // The dark mode switch would invoke this method
       toggleColorMode: () => {
-        setMode((prevMode) =>
-          prevMode === 'light' ? 'dark' : 'light',
-        );
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
       },
     }),
     [],
